@@ -24,7 +24,7 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1>WikiVerse</h1>
+      <h1 data-testid = "title">WikiVerse</h1>
 			<h2>An interesting 📚</h2>
 			<PagesList pages={pages} />
 		</main>
