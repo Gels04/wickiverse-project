@@ -1,0 +1,7 @@
+//needed this file for the jest to run for some reason
+
+{
+    "presets": ["@babel/preset-env",
+        "@babel/preset-react"]
+
+}
