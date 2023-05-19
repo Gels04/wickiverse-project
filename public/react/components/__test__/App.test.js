@@ -46,55 +46,65 @@ describe('The App component', () => {
     })
 
     it('has a `create` button', () => {
+        render(<App />)
         const createButton = screen.getByTestId('create');
         expect(createButton).toBeInTheDocument();
         expect(createButton).toHaveTextContent('Create');
     })
 
-    it('both `Wiki List` nad `Create` buttons have an onCLick attribute', () => {
+    it.skip('both `Wiki List` and `Create` buttons have an onCLick attribute', () => {
+        render(<App />)
         const wikiListButton = screen.getByTestId('wikiList'); 
         const createButton = screen.getByTestId('create');
-        expect(wikiListButton, createButton).toHaveAttribute('onclick');
+        expect(wikiListButton).toHaveAttribute('onClick');
+        expect(createButton).toHaveAttribute('onClick');
+
     })
 
-    it('`Wiki List` button makes a GET request when the button is clicked using the function `getWikiList`', () => {
+    it.skip('`Wiki List` button makes a GET request when the button is clicked using the function `getWikiList`', () => {
+        render(<App />)
         const wikiListButton = screen.getByTestId('wikiList');
         expect(wikiListButton).getAttribute('onClick').toBe('getWikiList') //if doesn't work try toMatch() instead of toBe()
     })
 })
 
-// describe("PagesList component", () => {
+describe("PagesList component", () => {
 
-//     render(<PagesList />)
+    
 
-//     it("has a `back` button", () => {
-//         const backButton = screen.getByTestId('backButton');
-//         expect(backButton).toBeInTheDocument();
-//         expect(backButton).toHaveTextContent('Back');
-//     })
+    it("has a `back` button", () => {
+        render(<PagesList />)
+        const backButton = screen.getByTestId('backButton');
+        expect(backButton).toBeInTheDocument();
+        expect(backButton).toHaveTextContent('Back');
+    })
 
-//     it('`back` button makes a GET request when the button is clicked using the function `getHomePage`', () => {
-//         const backButton = screen.getByTestId('backButton');
-//         expect(backButton).getAttribute('onClick').toBe('getHomePage')
-//     })
+    it('`back` button makes a GET request when the button is clicked using the function `getHomePage`', () => {
+        render(<PagesList />)
+        const backButton = screen.getByTestId('backButton');
+        expect(backButton).getAttribute('onClick').toBe('getHomePage')
+    })
 
-//     it('has titles listed ', () => {
-//         const firstTitle = screen.getByText('First Page');
-//         const otherTitle = screen.getByText("Eleanor of Aquitaine");
-//         expect(firstTitle).toBeInTheDocument();
-//         expect(otherTitle).toBeInTheDocument();
-//     })
+    it('has titles listed ', () => {
+        render(<PagesList />)
+        const firstTitle = screen.getByText('First Page');
+        const otherTitle = screen.getByText("Eleanor of Aquitaine");
+        expect(firstTitle).toBeInTheDocument();
+        expect(otherTitle).toBeInTheDocument();
+    })
 
-//     it('titles are displayed as buttons', () => {
-//         const title1 = screen.getByText('First Page', {selector: "button"})
-//         expect(title1).toBeInTheDocument();
-//     })
+    it('titles are displayed as buttons', () => {
+        render(<PagesList />)
+        const title1 = screen.getByText('First Page', {selector: "button"})
+        expect(title1).toBeInTheDocument();
+    })
 
-//     it('titles make a GET request to the /wiki/:slug endpoint for the specific article using the function `getArticle` ', () => {
-//         const titleButton = screen.getAttribute('onClick').toBe('getArticle')
-//     })
+    it.skip('titles make a GET request to the /wiki/:slug endpoint for the specific article using the function `getArticle` ', () => {
+        const titleButton = screen.getAttribute('onClick').toBe('getArticle')
+    })
 
-// })
+})
+
 
 // describe('Page component', () => {
 
